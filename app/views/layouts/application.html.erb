@@ -16,12 +16,16 @@
       </div>
 
       <div class="main">
-          <div class="top-row">
-          </div>
+        <div class="top-row">
+          <% if current_user %>
+            <%= link_to 'SignOut', destroy_user_session_path, method: :delete %>
+          <% end %>
+        </div>
+        <%= render 'shared/messages' %>
 
-          <div class="content">
-              <%= yield %>
-          </div>
+        <div class="content">
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>

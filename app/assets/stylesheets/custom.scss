@@ -14,3 +14,12 @@
   background: #0075a2;
   color: #fff; 
 }
+.alert {
+  animation: fadeOut 3s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}

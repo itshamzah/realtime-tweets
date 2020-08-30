@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Welcome</h1><br />
+  <p>You are not logged in yet.</p>
+  <p>
+    <%= link_to user_twitter_omniauth_authorize_path, class: "btn btn-twitter-with-icon btn-lg" do %>
+      <i class="fa fa-twitter fa-fw"></i> Twitter Login
+    <% end %>
+  </p>
+</div>

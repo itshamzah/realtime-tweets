@@ -2,22 +2,24 @@
   <div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" style="color: white;" href="/">Streamer</a>
     <button class="navbar-toggler">
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
-</div>
+  </div>
 
-<div class="collapse items-list">
-    <ul class="nav flex-column">
+  <div class="collapse items-list">
+    <% if user_signed_in? %>
+      <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <a href="customer" class="nav-link">
-              Home
-            </a>
+          <%= link_to dashboard_index_path, class: "nav-link" do %>
+            Home
+          <% end %>
         </li>
         <li class="nav-item px-3">
-            <a href="me" class="nav-link">
-              Timeline
-            </a>
+          <%= link_to home_index_path, class: "nav-link" do %>
+            Timeline
+          <% end %>
         </li>
-    </ul>
+      </ul>
+    <% end %>
   </div>
 </div>
