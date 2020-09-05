@@ -18,8 +18,22 @@
   animation: fadeOut 3s forwards;
   animation-delay: 3s;
 }
+.content{
+  width: 1000px;
+}
 
 @keyframes fadeOut {
   from {opacity: 1;}
   to {opacity: 0;}
+}
+
+.text-tweet{
+  margin:1px 0 4px;
+}
+.media-text{
+  margin: 10px 0 10px;
+}
+
+hr{
+  border-top: 1px solid #bfac25;
 }

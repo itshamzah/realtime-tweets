@@ -9,13 +9,13 @@
   <div class="collapse items-list">
     <% if user_signed_in? %>
       <ul class="nav flex-column">
-        <li class="nav-item px-3">
-          <%= link_to dashboard_index_path, class: "nav-link" do %>
-            Home
+        <li class="nav-item px-3 <%= 'active' if current_page?(wall_path) %>">
+          <%= link_to wall_path, class: "nav-link #{"active" if current_page?(wall_path)}" do %>
+            Wall
           <% end %>
         </li>
-        <li class="nav-item px-3">
-          <%= link_to home_index_path, class: "nav-link" do %>
+        <li class="nav-item px-3 <%=  %>">
+          <%= link_to timeline_path, class: "nav-link #{("active" if current_page?(timeline_path))}" do %>
             Timeline
           <% end %>
         </li>
