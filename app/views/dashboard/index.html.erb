@@ -7,4 +7,28 @@
 			<%= render :partial => "dashboard/tweet", :locals => { :tweet => tweet } %>
 		<% end %>
 	</ul>
+
+	<nav aria-label="Page navigation example">
+	  <ul class="pagination justify-content-center">
+	    <% if @page_number > 1 %>
+        <li class="page-item">
+          <%= link_to timeline_path(page: @page_number-1), class: "page-item" do %>
+            previous
+          <% end %>
+        </li>
+      <% end %>
+      <li class="page-item disabled">
+        <%= link_to timeline_path(page: @page_number), class: "page-item" do %>
+          <%=@page_number%>
+        <% end %>
+      </li>
+      <% if @page_number < 4 %>
+        <li class="page-item">
+          <%= link_to timeline_path(page: @page_number+1), class: "page-item" do %>
+            next
+          <% end %>
+        </li>
+      <% end %>
+	  </ul>
+	</nav>
 </div>
