@@ -1,13 +1,33 @@
 <div class="sidebar">
   <div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" style="color: white;" href="/">Streamer</a>
+    <a class="navbar-brand color-white" href="/">Streamer</a>
     <button class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </button>
   </div>
 
   <div class="collapse items-list">
+
     <% if user_signed_in? %>
+      <div class="container">
+        <div class="profile-sidebar">
+          <div class="container">
+            <a class="" href="https://twitter.com/<%= current_user.screen_name %>">
+              <img class="media-object image-size img-circle" src="<%= current_user.image %>">
+            </a>
+          </div>
+          <br>
+          <div class="container color-white">
+            <%= current_user.nick_name%><br>
+            @<%= current_user.screen_name%>
+          </div><br>
+          <div class="container">
+            <button type="button" class="btn btn-success btn-sm"><%= current_user.followers_count%> Followers</button>
+            <button type="button" class="btn btn-danger btn-sm"><%= current_user.friends_count%> Followed</button>
+          </div>
+        </div>
+      </div>
+      <br>
       <ul class="nav flex-column">
         <li class="nav-item px-3 <%= 'active' if current_page?(wall_path) %>">
           <%= link_to wall_path, class: "nav-link #{"active" if current_page?(wall_path)}" do %>

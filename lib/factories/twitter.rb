@@ -10,15 +10,17 @@ module TwitterFactory
 
   # Tweet objects parsing a kind of View Model to be used in views
   class Tweet
-    attr_accessor :text, :user_tw_id, :user_nickname, :user_image, :created_at
+    attr_accessor :text, :user_tw_id, :user_nickname, :user_image, :created_at, :retweet_count, :screen_name
 
     def initialize(object)
       tweet_object({
         text: object.text,
         user_tw_id: object.user.id.to_s,
-        user_nickname: object.user.screen_name,
+        screen_name: object.user.name,
         user_image: object.user.profile_image_url.to_s,
-        created_at: object.created_at.to_s
+        created_at: object.created_at.to_s,
+        retweet_count: object.retweet_count,
+        user_nickname: object.user.screen_name
       })
     end
 

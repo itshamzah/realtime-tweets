@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
     # REST client to make API calls for logged in user
     twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
 
-    @tweets = twitter_rest_client.user_timeline(tweet_params.symbolize_keys).take(20)
+    @tweets = twitter_rest_client.user_timeline(tweet_params.symbolize_keys)
     @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
 
     set_page
@@ -43,21 +43,24 @@ class DashboardController < ApplicationController
   end
 
   def set_page
+    # Page number for pagination
     @page_number = params[:page].nil? ? 1 : params[:page] .to_i
   end
 
   def default_params
-    { page: 1, count: 20 }
+    # Default params twitter API, max 200 tweets per request and 800 in total allowed
+    { page: 1, count: 200 }
   end
 
   def check_valid
-    params.merge({ count: 20 })
+    params.merge({ count: 200 })
     return params if (params[:page] && params[:page].to_i.between?(1, 4))
 
     params.merge(default_params)
   end
 
   def tweet_params
+    # Strong params
     check_valid.permit(:page, :count).to_h
   end
 end

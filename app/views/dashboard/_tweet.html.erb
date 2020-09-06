@@ -3,8 +3,9 @@
     <img class="media-object img-circle" src="<%= tweet.user_image %>">
   </a>
   <div class="media-body">
-    <div class="text-gray text-timeago"><small><b>Name</b> - <%= DateTime.parse(tweet.created_at).strftime("%b %C")%></small></div>
+    <div class="text-gray text-timeago"><small><b><%= tweet.screen_name %></b>@<%= tweet.user_nickname %> - <%= DateTime.parse(tweet.created_at).strftime("%b %C")%></small></div>
     <p class="text-tweet"><%= tweet.text %></p>
+    <p>retweets: <%=tweet.retweet_count%></p>
   </div>
   <hr>
 </div>
