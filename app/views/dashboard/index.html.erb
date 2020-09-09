@@ -1,5 +1,4 @@
-<h1><small>@<%= current_user.nick_name %></small></h1><br />
-<div class="container tweet-container">
+<div class="container-fluid tweet-container">
 	<h1>Timeline</h1>
 
 	<ul id="tweet-list" class="tweet-list">
@@ -8,27 +7,27 @@
 		<% end %>
 	</ul>
 
-	<nav aria-label="Page navigation example">
-	  <ul class="pagination justify-content-center">
-	    <% if @page_number > 1 %>
+  <nav>
+    <ul class="pagination justify-content-center">
+      <% if @page_number > 1 %>
         <li class="page-item">
-          <%= link_to timeline_path(page: @page_number-1), class: "page-item" do %>
+          <%= link_to timeline_path(page: @page_number-1), class: "page-link" do %>
             previous
           <% end %>
         </li>
       <% end %>
-      <li class="page-item disabled">
-        <%= link_to timeline_path(page: @page_number), class: "page-item" do %>
+      <li class="page-item active">
+        <%= link_to timeline_path(page: @page_number), class: "page-link" do %>
           <%=@page_number%>
         <% end %>
       </li>
       <% if @page_number < 4 %>
         <li class="page-item">
-          <%= link_to timeline_path(page: @page_number+1), class: "page-item" do %>
+          <%= link_to timeline_path(page: @page_number+1), class: "page-link" do %>
             next
           <% end %>
         </li>
       <% end %>
-	  </ul>
-	</nav>
+    </ul>
+  </nav>
 </div>

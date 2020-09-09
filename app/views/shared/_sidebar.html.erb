@@ -1,45 +1,58 @@
-<div class="sidebar">
-  <div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand color-white" href="/">Streamer</a>
-    <button class="navbar-toggler">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav id="sidebar">
+
+  <div class="sidebar-header">
+    <h3>Streamer</h3>
   </div>
 
-  <div class="collapse items-list">
+  <% if user_signed_in? %>
+    <div class="container">
+      <div class="profile center">
+        <div class="profile-sidebar ">
 
-    <% if user_signed_in? %>
-      <div class="container">
-        <div class="profile-sidebar">
-          <div class="container">
+          <div class="profile-userpic center">
             <a class="" href="https://twitter.com/<%= current_user.screen_name %>">
               <img class="media-object image-size img-circle" src="<%= current_user.image %>">
             </a>
           </div>
-          <br>
-          <div class="container color-white">
-            <%= current_user.nick_name%><br>
-            @<%= current_user.screen_name%>
-          </div><br>
-          <div class="container">
+
+          <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+              <%= current_user.nick_name%>
+            </div>
+            <div class="profile-usertitle-user">
+              @<%= current_user.screen_name%>
+            </div>
+          </div>
+
+          <div class="profile-userbuttons">
             <button type="button" class="btn btn-success btn-sm"><%= current_user.followers_count%> Followers</button>
             <button type="button" class="btn btn-danger btn-sm"><%= current_user.friends_count%> Followed</button>
           </div>
+
+          <div class="profile-usermenu">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2 <%= 'active' if current_page?(wall_path) %>">
+                <%= link_to wall_path, class: "nav-link #{"active" if current_page?(wall_path)}" do %>
+                  Wall
+                <% end %>
+              </li>
+              <li class="nav-item mb-2 <%= 'active' if current_page?(timeline_path) %>">
+                <%= link_to timeline_path, class: "nav-link #{("active" if current_page?(timeline_path))}" do %>
+                  Timeline
+                <% end %>
+              </li>
+            </ul>
+
+            <div class="container text-center mt-5">
+              <% if current_user %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-info btn-lg" do %>
+                  <span class="glyphicon glyphicon-log-out"></span>Log out
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <br>
-      <ul class="nav flex-column">
-        <li class="nav-item px-3 <%= 'active' if current_page?(wall_path) %>">
-          <%= link_to wall_path, class: "nav-link #{"active" if current_page?(wall_path)}" do %>
-            Wall
-          <% end %>
-        </li>
-        <li class="nav-item px-3 <%=  %>">
-          <%= link_to timeline_path, class: "nav-link #{("active" if current_page?(timeline_path))}" do %>
-            Timeline
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
-</div>
+    </div>
+  <% end %>
+</nav>

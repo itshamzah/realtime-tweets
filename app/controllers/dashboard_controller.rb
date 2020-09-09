@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
 
 	def wall
 		# REST client to make API calls for logged in user
-    twitter_rest_client = TwitterFactory.new_rest_client( @user[:token], @user[:secret] )
+    twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
 
     @tweets = twitter_rest_client.home_timeline(tweet_params.symbolize_keys)
     @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
@@ -53,9 +53,7 @@ class DashboardController < ApplicationController
   end
 
   def check_valid
-    params.merge({ count: 200 })
-    return params if (params[:page] && params[:page].to_i.between?(1, 4))
-
+    return params.merge({ count: 200 }) if (params[:page] && params[:page].to_i.between?(1, 4))
     params.merge(default_params)
   end
 

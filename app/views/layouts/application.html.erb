@@ -10,23 +10,19 @@
   </head>
 
   <body>
-    <div class="app-container"> 
-      <div class="">
-        <%= render 'shared/sidebar' %>
-      </div>
+    <div class="page-wrapper toggled">
+      <%= render 'shared/sidebar' %>
 
-      <div class="main">
-        <div class="top-row">
-          <% if current_user %>
-            <%= link_to 'SignOut', destroy_user_session_path, method: :delete %>
-          <% end %>
-        </div>
+      <div class="top-row"></div>
+
+      <main class="page-content content-color">
         <%= render 'shared/messages' %>
 
-        <div class="content">
+        <div class="container-fluid">
           <%= yield %>
         </div>
-      </div>
+      </main>
+
     </div>
   </body>
 </html>

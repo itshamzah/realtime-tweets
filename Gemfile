@@ -58,7 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 #GEMS
-gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'omniauth'

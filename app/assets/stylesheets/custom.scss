@@ -1,4 +1,6 @@
-
+body{
+  background-color:linen;
+}
 .btn-twitter {
   background: #00ACEE;
   border-radius: 0;
@@ -17,9 +19,6 @@
 .alert {
   animation: fadeOut 3s forwards;
   animation-delay: 3s;
-}
-.content{
-  width: 1000px;
 }
 
 @keyframes fadeOut {
