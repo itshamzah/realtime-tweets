@@ -3,6 +3,7 @@ require 'factory_bot'
 require 'pry'
 require 'devise'
 require 'rspec/autorun'
+require 'support/request_spec_helper'
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)

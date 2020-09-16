@@ -1,7 +1,7 @@
 # omniauth_callbacks_controller_spec.rb
 require 'spec_helper'
 
-describe Users::OmniauthCallbacksController do
+describe Users::OmniauthCallbacksController  do
   let(:current_user) { FactoryBot.create(:user) }
   before do
     OmniAuth.config.test_mode = true
@@ -17,6 +17,7 @@ describe Users::OmniauthCallbacksController do
     @request.env["devise.mapping"] = Devise.mappings[:user]
     @request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
   end
+
 
   describe "#twitter" do
     context 'new user' do
