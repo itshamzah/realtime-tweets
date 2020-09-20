@@ -10,8 +10,11 @@ class DashboardController < ApplicationController
     # REST client to make API calls for logged in user
     twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
 
+    # binding.pry
     @tweets = twitter_rest_client.user_timeline(tweet_params.symbolize_keys)
     @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
+    # binding.pry
+
 
     set_page
     respond_to do |format|
@@ -24,6 +27,7 @@ class DashboardController < ApplicationController
 		# REST client to make API calls for logged in user
     twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
 
+    binding.pry
     @tweets = twitter_rest_client.home_timeline(tweet_params.symbolize_keys)
     @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
 
