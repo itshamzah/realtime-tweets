@@ -30,7 +30,7 @@ RSpec.describe DashboardController, :type => :controller do
     #                         user_image: "http://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
     #                         user_nickname: "imransarfaraz15",
     #                         user_tw_id: "1307494312863817735"}]))
-    end
+    # end
 
     context 'when user is logged' do
       it "shows all activities for signed in user" do
